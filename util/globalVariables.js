@@ -13,12 +13,12 @@ const queries = [
     {
         "name": "projectBacklog_ReleasesAndUserStories",
         "path": "Shared Queries/projectBacklog_ReleasesAndUserStories",
-        "wiql": "SELECT [System.Id], [System.WorkItemType], [System.Title], [System.AssignedTo], [System.State], [System.Tags] FROM workitems WHERE [System.TeamProject] = @project AND [System.WorkItemType] IN ('Releases', 'Historia de usuario') AND [System.State] <> '' AND [System.AreaPath] = '" + process.env.ADO_PROJECT + "'"
+        "wiql": "SELECT [System.Id], [System.WorkItemType], [System.Title], [System.AssignedTo], [System.State], [System.Tags] FROM workitems WHERE [System.TeamProject] = @project AND [System.WorkItemType] IN ('Releases', 'Historia de usuario') AND [System.State] <> '' AND [System.AreaPath] = '" + new_project + "'"
     },
     {
         "name": "impedimentsInCurrentSprint",
         "path": "Shared Queries/impedimentsInCurrentSprint",
-        "wiql": "SELECT [System.Id], [System.WorkItemType], [System.Title], [System.AssignedTo], [System.State], [System.Tags] FROM workitems WHERE [System.TeamProject] = @project AND [System.WorkItemType] = 'Impediment' AND [System.IterationPath] = @currentIteration('[" + process.env.ADO_PROJECT + "]\\" + process.env.ADO_PROJECT + " Team')"
+        "wiql": "SELECT [System.Id], [System.WorkItemType], [System.Title], [System.AssignedTo], [System.State], [System.Tags] FROM workitems WHERE [System.TeamProject] = @project AND [System.WorkItemType] = 'Impediment' AND [System.IterationPath] = @currentIteration('[" + new_project + "]\\" + new_project + " Team')"
     },
     {
         "name": "getAllUserStories",
@@ -28,17 +28,127 @@ const queries = [
     {
         "name": "backlogInCurrentSprintByState",
         "path": "Shared Queries/backlogInCurrentSprintByState",
-        "wiql": "SELECT [System.Id], [System.WorkItemType], [System.Title], [System.AssignedTo], [System.State], [System.Tags] FROM workitems WHERE [System.TeamProject] = @project AND [System.WorkItemType] = 'Historia de usuario' AND [System.State] IN ('En proceso', 'Listo', 'Por Hacer') AND [System.IterationPath] = @currentIteration('[" + process.env.ADO_PROJECT + "]\\" + process.env.ADO_PROJECT + " Team')"
+        "wiql": "SELECT [System.Id], [System.WorkItemType], [System.Title], [System.AssignedTo], [System.State], [System.Tags] FROM workitems WHERE [System.TeamProject] = @project AND [System.WorkItemType] = 'Historia de usuario' AND [System.State] IN ('En proceso', 'Listo', 'Por Hacer') AND [System.IterationPath] = @currentIteration('[" + new_project + "]\\" + new_project + " Team')"
     },
     {
         "name": "tasksInCurrentSprint",
         "path": "Shared Queries/tasksInCurrentSprint",
-        "wiql": "SELECT [System.Id], [System.WorkItemType], [System.Title], [System.AssignedTo], [System.State], [System.Tags] FROM workitems WHERE [System.TeamProject] = @project AND [System.WorkItemType] = 'Task' AND [System.State] <> '' AND [System.IterationPath] = @currentIteration('[" + process.env.ADO_PROJECT + "]\\" + process.env.ADO_PROJECT + " Team')"
+        "wiql": "SELECT [System.Id], [System.WorkItemType], [System.Title], [System.AssignedTo], [System.State], [System.Tags] FROM workitems WHERE [System.TeamProject] = @project AND [System.WorkItemType] = 'Task' AND [System.State] <> '' AND [System.IterationPath] = @currentIteration('[" + new_project + "]\\" + new_project + " Team')"
     },
     {
         "name": "testCasesAndBugsProject",
         "path": "Shared Queries/testCasesAndBugsProject",
-        "wiql": "SELECT [System.Id], [System.WorkItemType], [System.Title], [System.AssignedTo], [System.State], [System.Tags] FROM workitems WHERE [System.TeamProject] = @project AND [System.WorkItemType] IN ('Test Case', 'Bug') AND [System.State] <> '' AND [System.AreaPath] = '" + process.env.ADO_PROJECT + "'"
+        "wiql": "SELECT [System.Id], [System.WorkItemType], [System.Title], [System.AssignedTo], [System.State], [System.Tags] FROM workitems WHERE [System.TeamProject] = @project AND [System.WorkItemType] IN ('Test Case', 'Bug') AND [System.State] <> '' AND [System.AreaPath] = '" + new_project + "'"
+    }
+]
+const widgets = [
+    {
+        "name": "projectBacklog_ReleasesAndUserStories by Work Item Type",
+        "position": {
+            "row": 3,
+            "column": 4
+        },
+        "size": {
+            "rowSpan": 2,
+            "columnSpan": 3
+        },
+        "settings": "",
+        "settingsVersion": {
+            "major": 3,
+            "minor": 0,
+            "patch": 0
+        },
+        "contributionId": "ms.vss-dashboards-web.Microsoft.VisualStudioOnline.Dashboards.WitChartWidget"
+    },
+    {
+        "name": "getAllUserStories by State",
+        "position": {
+            "row": 1,
+            "column": 4
+        },
+        "size": {
+            "rowSpan": 2,
+            "columnSpan": 3
+        },
+        "settings": "",
+        "settingsVersion": {
+            "major": 3,
+            "minor": 0,
+            "patch": 0
+        },
+        "contributionId": "ms.vss-dashboards-web.Microsoft.VisualStudioOnline.Dashboards.WitChartWidget"
+    },
+    {
+        "name": "impedimentsInCurrentSprint by State",
+        "position": {
+            "row": 3,
+            "column": 1
+        },
+        "size": {
+            "rowSpan": 2,
+            "columnSpan": 3
+        },
+        "settings": "",
+        "settingsVersion": {
+            "major": 3,
+            "minor": 0,
+            "patch": 0
+        },
+        "contributionId": "ms.vss-dashboards-web.Microsoft.VisualStudioOnline.Dashboards.WitChartWidget"
+    },
+    {
+        "name": "backlogInCurrentSprintByState by State",
+        "position": {
+            "row": 1,
+            "column": 1
+        },
+        "size": {
+            "rowSpan": 2,
+            "columnSpan": 3
+        },
+        "settings": "",
+        "settingsVersion": {
+            "major": 3,
+            "minor": 0,
+            "patch": 0
+        },
+        "contributionId": "ms.vss-dashboards-web.Microsoft.VisualStudioOnline.Dashboards.WitChartWidget"
+    },
+    {
+        "name": "tasksInCurrentSprint by Assigned To",
+        "position": {
+            "row": 5,
+            "column": 1
+        },
+        "size": {
+            "rowSpan": 2,
+            "columnSpan": 3
+        },
+        "settings": "",
+        "settingsVersion": {
+            "major": 3,
+            "minor": 0,
+            "patch": 0
+        },
+        "contributionId": "ms.vss-dashboards-web.Microsoft.VisualStudioOnline.Dashboards.WitChartWidget"
+    },
+    {
+        "name": "testCasesAndBugsProject by Work Item Type",
+        "position": {
+            "row": 5,
+            "column": 4
+        },
+        "size": {
+            "rowSpan": 2,
+            "columnSpan": 3
+        },
+        "settings": "",
+        "settingsVersion": {
+            "major": 3,
+            "minor": 0,
+            "patch": 0
+        },
+        "contributionId": "ms.vss-dashboards-web.Microsoft.VisualStudioOnline.Dashboards.WitChartWidget"
     }
 ]
 
@@ -52,5 +162,6 @@ export {
     source_control_type,
     new_project,
     project_config,
-    queries
+    queries,
+    widgets
 }
