@@ -1,0 +1,110 @@
+[
+    {
+        "name": "projectBacklog_ReleasesAndUserStories by Work Item Type",
+        "position": {
+            "row": 3,
+            "column": 4
+        },
+        "size": {
+            "rowSpan": 2,
+            "columnSpan": 3
+        },
+        "settings": "",
+        "settingsVersion": {
+            "major": 3,
+            "minor": 0,
+            "patch": 0
+        },
+        "contributionId": "ms.vss-dashboards-web.Microsoft.VisualStudioOnline.Dashboards.WitChartWidget",
+    },
+    {
+        "name": "getAllUserStories by State",
+        "position": {
+            "row": 1,
+            "column": 4
+        },
+        "size": {
+            "rowSpan": 2,
+            "columnSpan": 3
+        },
+        "settings": "",
+        "settingsVersion": {
+            "major": 3,
+            "minor": 0,
+            "patch": 0
+        },
+        "contributionId": "ms.vss-dashboards-web.Microsoft.VisualStudioOnline.Dashboards.WitChartWidget",
+    },
+    {
+        "name": "impedimentsInCurrentSprint by State",
+        "position": {
+            "row": 3,
+            "column": 1
+        },
+        "size": {
+            "rowSpan": 2,
+            "columnSpan": 3
+        },
+        "settings": "",
+        "settingsVersion": {
+            "major": 3,
+            "minor": 0,
+            "patch": 0
+        },
+        "contributionId": "ms.vss-dashboards-web.Microsoft.VisualStudioOnline.Dashboards.WitChartWidget",
+    },
+    {
+        "name": "backlogInCurrentSprintByState by State",
+        "position": {
+            "row": 1,
+            "column": 1
+        },
+        "size": {
+            "rowSpan": 2,
+            "columnSpan": 3
+        },
+        "settings": "",
+        "settingsVersion": {
+            "major": 3,
+            "minor": 0,
+            "patch": 0
+        },
+        "contributionId": "ms.vss-dashboards-web.Microsoft.VisualStudioOnline.Dashboards.WitChartWidget",
+    },
+    {
+        "name": "tasksInCurrentSprint by Assigned To",
+        "position": {
+            "row": 5,
+            "column": 1
+        },
+        "size": {
+            "rowSpan": 2,
+            "columnSpan": 3
+        },
+        "settings": "",
+        "settingsVersion": {
+            "major": 3,
+            "minor": 0,
+            "patch": 0
+        },
+        "contributionId": "ms.vss-dashboards-web.Microsoft.VisualStudioOnline.Dashboards.WitChartWidget",
+    },
+    {
+        "name": "testCasesAndBugsProject by Work Item Type",
+        "position": {
+            "row": 5,
+            "column": 4
+        },
+        "size": {
+            "rowSpan": 2,
+            "columnSpan": 3
+        },
+        "settings": "",
+        "settingsVersion": {
+            "major": 3,
+            "minor": 0,
+            "patch": 0
+        },
+        "contributionId": "ms.vss-dashboards-web.Microsoft.VisualStudioOnline.Dashboards.WitChartWidget",
+    }
+]
