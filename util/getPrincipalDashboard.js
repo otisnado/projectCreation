@@ -13,7 +13,7 @@ async function getPrincipalDashboard() {
         }
     };
 
-    return await axios(config).then(function (response) { return response.data }).catch(function (error) { console.log(error); });
+    return await axios(config).then(function (response) { return response.data }).catch(function (error) { console.log(JSON.stringify(error)); });
 }
 
 export { getPrincipalDashboard }
